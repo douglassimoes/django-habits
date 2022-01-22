@@ -17,6 +17,7 @@
             <section class="col-md-3 ">
                 <div class="container">
                 <form class="form-container" action="" method="POST">
+                    {% csrf_token %}
                     <div style="text-align: center;">
                     <h1 style="font-family: 'Mochiy Pop P One', sans-serif;">Welcome to</h1>
                     <h1 style="font-family: 'Mochiy Pop P One', sans-serif; color: royalblue;">Habit Tracker</h1>
@@ -35,8 +36,7 @@
                         <label class="form-check-label" for="exampleCheck1">I swear I am not a robot</label>
                     </div>
                     <div id="buttons" style="text-align: center;">
-                    <button class="btn btn-primary btn-lg">Signup</button>
-                    <button class="btn btn-primary btn-lg" style="min-width: 100px;">Login</button>
+                        <input class="btn btn-primary btn-lg" type="submit" value="Submit">
                     </div>
                     </form>
                 </div>      

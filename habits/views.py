@@ -9,6 +9,23 @@ def home(request):
 
 def signup(request):
     if request.method == 'POST':
+        print("Post Form")
+        form = UserCreationForm(request.POST)
+        print("User Creation")
+        if form.is_valid():
+            user = form.save()
+            print("Form valid")
+
+            messages.success(request, f'Your account has been created. You can log in now!')    
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+
+    context = {'form': form}
+    return render(request, 'habits/signup.html', context)
+
+def login(request):
+    if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
@@ -19,4 +36,4 @@ def signup(request):
         form = UserCreationForm()
 
     context = {'form': form}
-    return render(request, 'habits/signup.html', context)
+    return render(request, 'habits/login.html', context)
