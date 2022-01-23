@@ -6,11 +6,20 @@
 
 .form-container{
     min-width: 400px;
+    min-height: 80vh;
     background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px #000;
+    border: 10px solid black;
+    border-radius: 30px;
+    box-shadow: 0px 0px 30px 0px #000;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.phonescreen{
+    min-height: 65vh;
+}
+
+.phonebutton{
+    border: 1px solid black;
 }
 
 /* On screens that are 600px or less, set min-width to 200px */
