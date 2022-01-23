@@ -1,12 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-# the PK is automatically created by Django
-class User(models.Model):
-    username = models.CharField(max_length=40)
-    email = models.EmailField(max_length=254, default="john@doe.com")
-    password = models.CharField(max_length=50, default="1234")
-
 class Habit(models.Model):
     class HabitCategories(models.TextChoices):
         Reading = "Reading"
@@ -22,13 +17,16 @@ class Habit(models.Model):
         Parenting = "Parenting"
         Meditation = "Meditation" 
     
+    class HabitRepetition(models.TextChoices):
+        Everyday = "Everyday"
+        OnceAWeek = "OnceAWeek"
+    
     user_id = models.ForeignKey(User, on_delete = models.CASCADE, default=1)
     habitname = models.CharField(max_length=254, default="")
-    description = models.TextField()
-    start_date = models.DateField()
-    end_date = models.DateField()
-    category = models.CharField(max_length=254,choices=HabitCategories.choices)
-    repetition = models.TextChoices('Everyday','OnceAWeek')
+    description = models.CharField(max_length=254, default="")
+    start_date = models.DateTimeField(auto_now_add=True)
+    category = models.CharField(max_length=254,choices=HabitCategories.choices, default="")
+    repetition = models.CharField(max_length=254,choices=HabitRepetition.choices, default="")
 
 class Tracker(models.Model):
     user_id = models.ForeignKey(User, on_delete = models.CASCADE)
