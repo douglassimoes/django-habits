@@ -31,5 +31,5 @@ class Habit(models.Model):
 class Tracker(models.Model):
     user_id = models.ForeignKey(User, on_delete = models.CASCADE)
     habit_id = models.ForeignKey(Habit, on_delete = models.CASCADE)
-    actual_date = models.DateField()
+    actual_date = models.DateTimeField(auto_now_add=True)
     duration = models.PositiveIntegerField()

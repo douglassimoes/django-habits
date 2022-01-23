@@ -49,7 +49,9 @@ def dashboard(request):
 
 @login_required
 def allhabits(request):
-    return render(request, 'habits/dashboard.html',{"user_id": request.user.pk})
+    habitlist = models.Habit.objects.filter(user_id=request.user)
+    print(habitlist)
+    return render(request, 'habits/allhabits.html',{"habits": habitlist})
 
 @login_required
 def createhabit(request):
@@ -61,6 +63,8 @@ def createhabit(request):
         repetition = request.POST.getlist('repetition')[0]
         habit = models.Habit(user_id=request.user,habitname=habitname,description=description,category=str(category),repetition=str(repetition))
         habit.save()
+        tracker = models.Tracker(user_id=request.user,habit_id=habit,duration=0)
+        tracker.save()
     return render(request, 'habits/createhabit.html',{})
 
 def scorecard(request):

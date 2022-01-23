@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/allhabits.css' %}" />
 </head>
 <body>
     <section class="container-fluid row d-flex justify-content-center align-items-center bg" style="background-color: black;">
@@ -21,21 +21,16 @@
                         <h1 style="font-family: 'Mochiy Pop P One', sans-serif;">Welcome to</h1>
                         <h1 style="font-family: 'Mochiy Pop P One', sans-serif; color: royalblue;">HabitTracker</h1>
                     </div>
-                    <div class="phonescreen square-box d-flex justify-content-center align-items-center" style="border-style: dashed;">
-                        <div class = "row">
-                            {% for project in projects %}
-                            <div class="card-body">
-                                <h5 class="card-title">{{ habit.habitname }}</h5>
-                                <p class="card-text">{{ habit.description }}</p>
-                                <p class="card-text">{{ habit.start_date }}</p>
-                                <p class="card-text">{{ habit.end_date }}</p>
-                                <p class="card-text">{{ habit.category }}</p>
-                                <p class="card-text">{{ habit.repetition }}</p>
-                                <a href="{% url 'projects:project_details' project.pk %}"
-                                class="btn btn-primary">
-                                Read More
-                                </a>
-                            </div>
+                    <div class="phonescreen" style="border-style: dashed;">
+                        <div class = "row" style="overflow:scroll;">
+                            {% for habit in habits %}
+                                <div class="card-body">
+                                    Name:<h5 class="card-title"><strong>{{ habit.habitname }}</strong></h5>
+                                    <p class="card-text">{{ habit.description }}</p>
+                                    <p class="card-text">{{ habit.start_date }}</p>
+                                    <p class="card-text">{{ habit.category }}</p>
+                                    <p class="card-text">{{ habit.repetition }}</p>
+                                </div>
                             {% endfor %}
                         </div>
                     </div>

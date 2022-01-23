@@ -22,10 +22,16 @@
                         <h1 style="font-family: 'Mochiy Pop P One', sans-serif;">Welcome to</h1>
                         <h1 style="font-family: 'Mochiy Pop P One', sans-serif; color: royalblue;">HabitTracker</h1>
                     </div>
-                    <div class="phonescreen square-box d-flex justify-content-center align-items-center" style="border-style: dashed;">
-                        <a class="btn btn-primary" style="min-width: 180px;font-size:30px;" href="{% url 'createhabit' %}">Create</a>
+                    <div class="phonescreen" style="border-style: dashed;">
+                        <div class="middlebutton">
+                            <a class="btn btn-primary" style="min-width: 180px;font-size:30px;" href="{% url 'createhabit' %}">Create</a>
+                        </div>
+                        <div class="middlebutton">
                         <a class="btn btn-primary" style="min-width: 180px;font-size:30px;" href="{% url 'allhabits' %}">Habits</a>
-                        <a class="btn btn-primary" style="min-width: 180px;font-size:30px;" href="{% url 'scorecard' %}">Scorecard</a>
+                        </div>
+                        <div class="middlebutton">
+                            <a class="btn btn-primary" style="min-width: 180px;font-size:30px;" href="{% url 'scorecard' %}">Scorecard</a>
+                        </div>
                     </div>
                     <div id="phonehomebuttons" style="text-align: match-parent;background-color: #6c757d; border-radius: 0px 0px 15px 15px;">
                         <div id="" style="text-align: center;min-width: 50px;">
