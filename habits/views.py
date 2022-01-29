@@ -67,5 +67,15 @@ def createhabit(request):
         tracker.save()
     return render(request, 'habits/createhabit.html',{})
 
+@login_required
 def scorecard(request):
-    return render(request, 'habits/dashboard.html',{})
+    habitlist = models.ScorecardHabit.objects.filter(user_id=request.user)
+    print(habitlist)
+    if request.method == 'POST':
+        print(request.POST.keys())
+        habitname = request.POST.get('habitname')
+        schedule = request.POST.getlist('schedule')[0]
+        score = request.POST.getlist('score')[0]
+        scorecard_habit = models.ScorecardHabit(user_id=request.user,habitname=habitname,schedule=str(schedule),score=str(score))
+        scorecard_habit.save()
+    return render(request, 'habits/scorecard.html',{"scorecard_habits": habitlist})

@@ -28,6 +28,22 @@ class Habit(models.Model):
     category = models.CharField(max_length=254,choices=HabitCategories.choices, default="")
     repetition = models.CharField(max_length=254,choices=HabitRepetition.choices, default="")
 
+class ScorecardHabit(models.Model):
+    class Scores(models.TextChoices):
+        POSITIVE = "+"
+        NEUTRAL = "="
+        NEGATIVE = "-"
+    
+    class Schedules(models.TextChoices):
+        BEFORE_NOON = "6am-12pm"
+        AFTERNOON = "12-6pm"
+        EVENING = "6pm-12am"
+    
+    user_id = models.ForeignKey(User, on_delete = models.CASCADE, default=1)
+    habitname = models.CharField(max_length=254, default="")
+    schedule = models.CharField(max_length=254,choices=Schedules.choices, default="")
+    score = models.CharField(max_length=254,choices=Scores.choices, default="")
+
 class Tracker(models.Model):
     user_id = models.ForeignKey(User, on_delete = models.CASCADE)
     habit_id = models.ForeignKey(Habit, on_delete = models.CASCADE)
