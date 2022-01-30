@@ -17,6 +17,7 @@
             <section class="col-md-3 ">
                 <div class="container">
                 <div class="form-container" action="" method="POST">
+                    {% csrf_token %}
                     <div style="text-align: center;">
                         <h1 style="font-family: 'Mochiy Pop P One', sans-serif;color: white;">Welcome to</h1>
                         <h1 style="font-family: 'Mochiy Pop P One', sans-serif; color: royalblue;">HabitTracker</h1>
@@ -24,12 +25,24 @@
                     <div class="phonescreen" style="border-style: dashed;">
                         <div class = "row" style="overflow:scroll;">
                             {% for habit in habits %}
-                                <div class="card-body">
-                                    Name:<h5 class="card-title"><strong>{{ habit.habitname }}</strong></h5>
-                                    <p class="card-text">{{ habit.description }}</p>
-                                    <p class="card-text">{{ habit.start_date }}</p>
-                                    <p class="card-text">{{ habit.category }}</p>
-                                    <p class="card-text">{{ habit.repetition }}</p>
+                                <div class="card text-white {{ habit.color }} mb-3" style="max-width: 20rem;">
+                                    <div class="card-header">{{ habit.habitname }}</div>
+                                    <div class="card-body">
+                                        <p class="card-text">{{ habit.description }}</p>
+                                        <div class="space" style="min-width:60px;padding-top: 5px;padding-bottom: 5px;">
+                                            <div id="buttons" style="padding-top : 2px;float: left;">
+                                                <select class="form-select" aria-label="Default select example" name="progress">
+                                                    <option selected>Select Progress</option>
+                                                    <option value="2min">2min</option>
+                                                    <option value="5min">5min</option>
+                                                    <option value="Success">Success</option>
+                                                </select>
+                                            </div>
+                                            <div class="logbutton">
+                                                <a href="#" class="btn btn-primary btn-lg" style="float: right;" type="submit" name="log:{{ habit.id }}" value="Log"></a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             {% endfor %}
                         </div>
@@ -37,11 +50,10 @@
                     <div id="phonehomebuttons" style="text-align: match-parent;background-color: #6c757d; border-radius: 0px 0px 15px 15px;">
                         <div id="" style="text-align: center;min-width: 50px;">
                             <a class="btn btn-secondary" style="min-width: 180px;font-size:30px;" href="{% url 'dashboard' %}">Home</a>
-                            <a class="btn btn-secondary" style="min-width: 180px;font-size:30px;" href="{% url 'allhabits' %}">Habits</a>
+                            <a class="btn btn-secondary" style="min-width: 180px;font-size:30px;" href="{% url 'allhabits' %}">Scorecard</a>
                         </div>
-                    </form>
+                    </div>
                 </div>      
-                </section>
             </section>
         </section>
 </body>

@@ -17,6 +17,14 @@ class Habit(models.Model):
         Parenting = "Parenting"
         Meditation = "Meditation" 
     
+    class HabitColor(models.TextChoices):
+        BG_primary = "bg-primary"
+        BG_secondary = "bg-secondary"
+        BG_success = "bg-success"
+        BG_danger = "bg-danger"
+        BG_warning = "bg-warning"
+        BG_info = "bg-info" 
+    
     class HabitRepetition(models.TextChoices):
         Everyday = "Everyday"
         OnceAWeek = "OnceAWeek"
@@ -27,6 +35,7 @@ class Habit(models.Model):
     start_date = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=254,choices=HabitCategories.choices, default="")
     repetition = models.CharField(max_length=254,choices=HabitRepetition.choices, default="")
+    color = models.CharField(max_length=254,choices=HabitColor.choices, default="")
 
 class ScorecardHabit(models.Model):
     class Scores(models.TextChoices):

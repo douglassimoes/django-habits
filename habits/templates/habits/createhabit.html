@@ -22,7 +22,7 @@
                 <form class="form-container" action="" method="POST">
                     {% csrf_token %}
                     <div style="text-align: center;">
-                        <h1 style="font-family: 'Mochiy Pop P One', sans-serif;">Welcome to</h1>
+                        <h1 style="font-family: 'Mochiy Pop P One', sans-serif;color: white;">Welcome to</h1>
                         <h1 style="font-family: 'Mochiy Pop P One', sans-serif; color: royalblue;">HabitTracker</h1>
                     </div>
                     <div class="phonescreen" style="border-style: dashed;">
@@ -34,17 +34,31 @@
                             <label for="exampleInputEmail1">Description</label>
                             <input type="description" name="description" class="form-control" id="exampleInputEmail1" placeholder="Enter quick description">
                         </div>
-                        <select class="form-select" aria-label="Default select example" name="category">
-                            <option selected>Select Category</option>
-                            <option value="Reading" name="Reading">Reading</option>
-                            <option value="Exercise" name="Exercise">Exercise</option>
-                            <option value="Health" name="Health">Health</option>
-                        </select>
-                        <select class="form-select" aria-label="Default select example" name="repetition">
-                            <option selected>Select Periodicity</option>
-                            <option value="Everyday">Everyday</option>
-                            <option value="OnceAWeek">OnceAWeek</option>
-                        </select>
+                        <div class="categoryandperiod" style="min-width:220px;padding-top: 5px;padding-bottom: 5px;">
+                            <select class="form-select"  aria-label="Default select example" name="category">
+                                <option selected>Select Category</option>
+                                <option value="Reading" name="Reading">Reading</option>
+                                <option value="Exercise" name="Exercise">Exercise</option>
+                                <option value="Health" name="Health">Health</option>
+                            </select>
+                        </div>
+                        <div class="space" style="min-width:220px;padding-top: 5px;padding-bottom: 5px;">
+                            <select class="form-select" aria-label="Default select example" name="repetition">
+                                <option selected>Select Periodicity</option>
+                                <option value="Everyday">Everyday</option>
+                                <option value="OnceAWeek">OnceAWeek</option>
+                            </select>
+                        </div>
+                        <div class="space" style="min-width:220px;padding-top: 5px;padding-bottom: 5px;">
+                            <select class="form-select"  aria-label="Default select example" name="color">
+                                <option selected>Select Color</option>
+                                <option value="bg-primary" name="bg-primary">Blue</option>
+                                <option value="bg-success" name="bg-success">Green</option>
+                                <option value="bg-danger" name="bg-danger">Red</option>
+                                <option value="bg-warning" name="bg-warning">Yellow</option>
+                                <option value="bg-info" name="bg-info">LighBlue</option>
+                            </select>
+                        </div>
                         <div id="buttons" style="text-align: center;">
                             <input class="btn btn-primary btn-lg" type="submit" value="Create">
                         </div>
