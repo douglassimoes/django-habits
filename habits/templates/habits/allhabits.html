@@ -24,6 +24,8 @@
                     <div class="phonescreen" style="border-style: dashed;">
                         <div class = "row" style="overflow:scroll;">
                             {% for habit in habits %}
+                            <div class="card text-white {{ habit.color }} mb-3" style="max-width: 20rem;">
+                                <div class="card-header">{{ habit.habitname }}</div>
                                 <div class="card-body">
                                     Name:<h5 class="card-title"><strong>{{ habit.habitname }}</strong></h5>
                                     <p class="card-text">{{ habit.description }}</p>
@@ -31,6 +33,7 @@
                                     <p class="card-text">{{ habit.category }}</p>
                                     <p class="card-text">{{ habit.repetition }}</p>
                                 </div>
+                            </div>
                             {% endfor %}
                         </div>
                     </div>
