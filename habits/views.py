@@ -91,13 +91,16 @@ def scorecard(request):
 
 @login_required
 def loghabit(request):
-    print("dale")
     habitlist = models.Habit.objects.filter(user_id=request.user)
-    print(habitlist)
     if request.method == 'POST':
         print(request.POST.keys())
         log = request.POST.get('log')
         regex = re.compile("log.*")
         match_answer = list(filter(regex.match, request.POST.keys()))
-        print(log)
+        if  match_answer:
+            habit_to_log = match_answer[0].split(":")[1]
+            progress = int(request.POST.getlist('progress')[0])
+            habit = models.Habit.objects.filter(user_id=request.user,id=habit_to_log)[0]
+            tracker = models.Tracker(user_id=request.user,habit_id=habit,duration=progress)
+            tracker.save()
     return render(request, 'habits/loghabit.html',{"habits": habitlist})
