@@ -21,17 +21,17 @@
                         <h1 style="font-family: 'Mochiy Pop P One', sans-serif;color: white;">Welcome to</h1>
                         <h1 style="font-family: 'Mochiy Pop P One', sans-serif; color: royalblue;">HabitTracker</h1>
                     </div>
-                    <div class="phonescreen" style="border-style: dashed;">
+                    <div class="phonescreen" style="border-style: inset;">
                         <div class = "row" style="overflow:scroll;">
                             {% for habit in habits %}
                             <div class="card text-white {{ habit.color }} mb-3" style="max-width: 20rem;">
                                 <div class="card-header">{{ habit.habitname }}</div>
                                 <div class="card-body">
                                     Name:<h5 class="card-title"><strong>{{ habit.habitname }}</strong></h5>
-                                    <p class="card-text">{{ habit.description }}</p>
-                                    <p class="card-text">{{ habit.start_date }}</p>
-                                    <p class="card-text">{{ habit.category }}</p>
-                                    <p class="card-text">{{ habit.repetition }}</p>
+                                    <p class="card-text"><i>Description:</i> {{ habit.description }}</p>
+                                    <p class="card-text"><i>Creation Date:</i> {{ habit.start_date }}</p>
+                                    <p class="card-text"><i>Category:</i> {{ habit.category }}</p>
+                                    <p class="card-text"><i>Periodicity:</i> {{ habit.repetition }}</p>
                                 </div>
                             </div>
                             {% endfor %}

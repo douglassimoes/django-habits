@@ -8,7 +8,7 @@ class Habit(models.Model):
         Exercise = "Exercise"
         Practicing_Music = "Practicing Music"
         Writing = "Writing"
-        Language_Learning = "Language Learning"
+        Learning = "Learning"
         Savings = "Savings"
         Gratitude = "Gratitude"
         Productivity = "Productivity"
@@ -27,7 +27,7 @@ class Habit(models.Model):
     
     class HabitRepetition(models.TextChoices):
         Everyday = "Everyday"
-        OnceAWeek = "OnceAWeek"
+        OnceAWeek = "Once a Week"
     
     user_id = models.ForeignKey(User, on_delete = models.CASCADE, default=1)
     habitname = models.CharField(max_length=254, default="")
