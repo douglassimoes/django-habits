@@ -39,7 +39,7 @@ I chose to use Postgres over the default sqllite because of its advanced feature
 
 The result application allows the user to signup, login, create a habit and log a habit. Allows you also to create a Scorecard of your daily habits, concept from Atomic Habits book, which can bring more awareness on where you are spending your time. 
 
-Pages side by side: First page,Page for creating a habit,Page for logging a habit,Scorecard page:
+Pages side by side: First page,Page for creating a habit,Page for logging a habit,Scorecard page;
 
 <p float="left">
   <img src="doc/images/firstpage.PNG" width="200" />
